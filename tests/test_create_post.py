@@ -9,7 +9,7 @@ from locators import AuthPageLocators
 from locators import AdPageLocators
 from locators import UserPageLocators
 
-class Test_create_post:
+class TestCreatePost:
     def test_create_post_unauthorized_user(self, open_main_page):
         driver = open_main_page
 
@@ -26,7 +26,7 @@ class Test_create_post:
 
 
         modal_title = driver.find_element(*AuthPageLocators.TOP_TEXT)
-        assert modal_title.is_displayed(), "Ошибка отображениея заголовка"
+        assert modal_title.is_displayed(), "Ошибка отображения заголовка"
 
     def test_create_post_authorized_user(self, login):
         driver = login 
@@ -36,7 +36,7 @@ class Test_create_post:
             EC.element_to_be_clickable(MainPageLocators.NEW_AD_BUTTON)
             )
         create_ad_button.click()
-        print("Кнопка успешно нажата")
+        System.out.println("Ошибка нажатия кнопки")
 
 
         title_field = WebDriverWait(driver, 15).until(
@@ -92,8 +92,8 @@ class Test_create_post:
         element = WebDriverWait(driver, 10).until(
             EC.visibility_of_element_located(MainPageLocators.LOGO_BUTTON)
             )
-        element.click()
-        print("Кнопка нажата успешно")
+        element.click() 
+        System.out.println("Ошибка нажатия кнопки")
         
         first_card = WebDriverWait(driver, 15).until(
             EC.presence_of_element_located(UserPageLocators.USER_FIRST_AD)

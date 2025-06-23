@@ -6,7 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from locators import MainPageLocators
 
 class TestUserAuth:
-    # Тест: успешный вход пользователя
+
     def test_successful_login(self, login):
         driver = login
 
@@ -18,7 +18,7 @@ class TestUserAuth:
         user_element = WebDriverWait(driver, 10).until(
             EC.visibility_of_element_located(MainPageLocators.USER_NAME)
         )
-        assert user_element.is_displayed(), "Элемент с текстом 'User.' найден, но не отображается"
+        assert user_element.is_displayed(), "Имя пользователя не отображается"
 
     def test_successful_logout(self,login):
         driver = login
@@ -35,7 +35,7 @@ class TestUserAuth:
         user_element = WebDriverWait(driver, 10).until(
             EC.invisibility_of_element_located(MainPageLocators.USER_NAME)
         )
-        assert user_element, "Элемент с текстом 'User.' найден, но не отображается"
+        assert user_element, "Имя пользователя не отображается"
 
         login_button = WebDriverWait(driver, 10).until(
             EC.element_to_be_clickable(MainPageLocators.LOGIN_BUTTON)
